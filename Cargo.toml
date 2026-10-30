@@ -1,0 +1,27 @@
+[package]
+name = "rune-material-shapes"
+version = "0.0.1"
+edition = "2024"
+license = "Apache-2.0"
+description = "Material 3 Expressive shapes for Rune: Android's 35-shape Material Shapes library, with rounded polygons, corner smoothing, morphing and a playground."
+readme = "README.md"
+repository = "https://github.com/threehymns/rune-material-shapes"
+keywords = ["material3", "shapes", "morph", "ui", "rune"]
+categories = ["graphics", "gui"]
+
+[dependencies]
+rune = { git = "https://github.com/anomalyco/rune", rev = "27e9745df15c83be7b0ba225c9f9f10c892a157e", default-features = false, optional = true }
+
+[dev-dependencies]
+# The example is a full Rune app, so it keeps Rune's default desktop features.
+rune = { git = "https://github.com/anomalyco/rune", rev = "27e9745df15c83be7b0ba225c9f9f10c892a157e" }
+
+[features]
+default = ["rune"]
+# Painting, layout helpers and the Playground stories. The geometry has no dependencies.
+rune = ["dep:rune"]
+
+[[example]]
+name = "material-shapes"
+path = "examples/material-shapes.rs"
+required-features = ["rune"]
